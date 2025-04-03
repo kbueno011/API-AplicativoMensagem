@@ -1,0 +1,237 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Faz a tela ocupar todo o espaço */
+html, body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #e5ddd5;
+}
+
+/* Layout principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar (Lista de contatos) */
+.sidebar {
+    width: 30%;
+    background: #23756c;  /* Verde escuro do WhatsApp */
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ffffff; /* Verde mais claro para contraste */
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #23756c; /* Verde mais claro do WhatsApp */
+    border-bottom: 1px solid #1ba84f;
+}
+
+#numero {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+#pesquisar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #1ba84f; /* Verde do botão WhatsApp */
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+/* Lista de contatos */
+#galeria {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Contatos */
+.contato-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #86a09d; /* Linha entre contatos */
+    transition: background 0.3s;
+    color: white;
+}
+
+/* Efeito hover para contatos */
+.contato-item:hover {
+    background: #128C7E; /* Verde claro do WhatsApp */
+}
+
+/* Avatar do contato */
+.contato-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Área do chat */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #e5ddd5;
+    height: 100%;
+}
+
+/* Cabeçalho do chat */
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #075e54;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Avatar do contato no chat */
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* Nome do contato */
+.chat-nome {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Ícones de chamada */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* Caixa de mensagens */
+#chat {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilização das mensagens */
+.mensagem {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    word-wrap: break-word;
+    font-size: 15px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensagem enviada (verde, canto direito) */
+.mensagem-enviada {
+    align-self: flex-end;
+    background-color: #d9fdd3;
+    text-align: left;
+    border-radius: 8px 8px 0px 8px;
+    padding: 10px 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Mensagem recebida (branca, canto esquerdo) */
+.mensagem-recebida {
+    align-self: flex-start;
+    background-color: #ffffff;
+    border-radius: 8px 8px 8px 0px;
+    padding: 10px 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Barra de envio de mensagens */
+.input-container {
+    display: flex;
+    padding: 10px;
+    background: #f0f2f5;
+    border-top: 1px solid #ccc;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#mensagem {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+#enviar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #25d366;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .chat-container {
+        display: none;
+    }
+
+    /* Mostrar chat quando um contato for selecionado */
+    .chat-container.active {
+        display: flex;
+        width: 100%;
+    }
+}
